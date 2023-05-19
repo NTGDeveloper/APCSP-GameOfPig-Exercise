@@ -75,23 +75,29 @@ if game_choice == "P" or game_choice == "p":
     player2_score = roll_dice(round, player2_score, verbose)
     if player2_score >= 100:
       break
+    print("\nEnd of Round Stats:")
+    print("Player 1 Score: " + str(player1_score))
+    print("Player 2 Score: " + str(player2_score))
 elif game_choice == "c" or game_choice == "C":
   verbose = input("Would you like to see the AI's dice? (Y or N) ")
   while player1_score < 100 and computer_score < 100:
     round += 1
     player = 1
-    print("\n\nPlayer 1's Turn " + str(round))
+    print("\n\nPlayer's Turn " + str(round))
     player1_score = roll_dice(round, player1_score, verbose)
     print("\nEnd of Round Stats:")
-    print("Player 1 Score: " + str(player1_score))
-    print("\nComputer Score: " + str(computer_score))
+    print("Player Score: " + str(player1_score))
+    print("Computer Score: " + str(computer_score))
     if player1_score >= 100:
       break
     print("\n\nComputer's Turn " + str(round))
     player = "computer"
-    player2_score = roll_dice(round, computer_score, verbose)
+    computer_score = roll_dice(round, computer_score, verbose)
     if computer_score >= 100:
       break
+    print("\nEnd of Round Stats:")
+    print("Player Score: " + str(player1_score))
+    print("Computer Score: " + str(computer_score))
 if player1_score >= 100:
   print("\n\n\nPlayer 1 Wins!\n")
   print("\nWinning Score: " + str(player1_score))
@@ -102,5 +108,5 @@ elif player2_score >= 100:
   print("Loosing Score: " + str(player1_score))
 elif computer_score >= 100:
   print("\n\n\nComputer Wins!\n")
-  print("\nWinning Score: " + str(computer_score))
-  print("Loosing Score: " + str(player1_score))
+  print("\nComputer Score: " + str(computer_score))
+  print("Player Score: " + str(player1_score))
